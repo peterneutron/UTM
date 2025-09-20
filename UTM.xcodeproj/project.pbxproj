@@ -280,6 +280,7 @@
 		85EC516427CC8D0F004A51DE /* VMConfigAdvancedNetworkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EC516327CC8C98004A51DE /* VMConfigAdvancedNetworkView.swift */; };
 		85EC516527CC8D0F004A51DE /* VMConfigAdvancedNetworkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EC516327CC8C98004A51DE /* VMConfigAdvancedNetworkView.swift */; };
 		85EC516627CC8D10004A51DE /* VMConfigAdvancedNetworkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EC516327CC8C98004A51DE /* VMConfigAdvancedNetworkView.swift */; };
+		9E698F382E7EF14D004651E6 /* UTMNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E698F372E7EF14D004651E6 /* UTMNotifications.swift */; };
 		B329049C270FE136002707AC /* AltKit in Frameworks */ = {isa = PBXBuildFile; productRef = B329049B270FE136002707AC /* AltKit */; };
 		B3DDF57226E9BBA300CE47F0 /* AltKit in Frameworks */ = {isa = PBXBuildFile; productRef = B3DDF57126E9BBA300CE47F0 /* AltKit */; };
 		CD77BE422CAB51B40074ADD2 /* UTMScriptingExportCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD77BE412CAB519F0074ADD2 /* UTMScriptingExportCommand.swift */; };
@@ -1816,6 +1817,7 @@
 		84F909FE289488F90008DBE2 /* MenuLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuLabel.swift; sourceTree = "<group>"; };
 		85EC516327CC8C98004A51DE /* VMConfigAdvancedNetworkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VMConfigAdvancedNetworkView.swift; sourceTree = "<group>"; };
 		9786BB59294056960032B858 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9E698F372E7EF14D004651E6 /* UTMNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UTMNotifications.swift; sourceTree = "<group>"; };
 		C03453AD2709E35100AD51AD /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		C03453AE2709E35100AD51AD /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		C03453AF2709E35100AD51AD /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
@@ -2895,6 +2897,7 @@
 		CE5F1659226138AB00F3D56B /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				9E698F372E7EF14D004651E6 /* UTMNotifications.swift */,
 				CE2D955624AD4F980059923A /* Swift-Bridging-Header.h */,
 				CE88A09B2E1DDB4200EAA28E /* UTMASIFImage.h */,
 				CE88A09C2E1DDB4200EAA28E /* UTMASIFImage.m */,
@@ -3858,6 +3861,7 @@
 				84B36D2B27B790BE00C22685 /* DestructiveButton.swift in Sources */,
 				CED779E82C79062500EB82AE /* UTMTips.swift in Sources */,
 				CE9B154A2B12A87E003A32DD /* GenerateKey.c in Sources */,
+				9E698F382E7EF14D004651E6 /* UTMNotifications.swift in Sources */,
 				CE020BAC24AEE00000B44AB6 /* UTMLoggingSwift.swift in Sources */,
 				848D99BA28630A780055C215 /* VMConfigSerialView.swift in Sources */,
 				8401FDA2269D3E2500265F0D /* VMConfigAppleNetworkingView.swift in Sources */,

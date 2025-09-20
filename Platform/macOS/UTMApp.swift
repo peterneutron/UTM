@@ -40,7 +40,20 @@ struct UTMApp: App {
                 if let message = notification.userInfo?["Message"] as? String {
                     data.showErrorAlert(message: message)
                 }
-            }  
+            }
+            .onReceive(.vmDidSave) { output in
+                guard #available(macOS 15, *) else { return }
+                if let vm = output.object as? any UTMVirtualMachine,
+                   let boxed = data.virtualMachines.first(where: { $0.id == vm.id }) {
+                    Task { await upsertIndex(for: boxed) }
+                }
+            }
+            .onReceive(.vmDidDelete) { output in
+                guard #available(macOS 15, *) else { return }
+                if let id = output.userInfo?["id"] as? UUID {
+                    Task { await deleteIndex(for: id) }
+                }
+            }
     }
     
     @SceneBuilder
@@ -81,5 +94,29 @@ struct UTMApp: App {
             return oldBody
         }
     }
-    
+
+    @MainActor
+    private func upsertIndex(for vm: VMData) async {
+        guard #available(macOS 15, *) else { return }
+        let entity = UTMVirtualMachineEntity(from: vm)
+        do {
+            let index = CSSearchableIndex.default()
+            try await index.indexAppEntities([entity])
+            logger.debug("[Indexing] Upserted VM entity: \(vm.detailsTitleLabel)")
+        } catch {
+            logger.error("[Indexing] Upsert failed: \(error.localizedDescription)")
+        }
+    }
+
+    @MainActor
+    private func deleteIndex(for id: UUID) async {
+        guard #available(macOS 15, *) else { return }
+        do {
+            let index = CSSearchableIndex.default()
+            try await index.deleteAppEntities(identifiedBy: [id], ofType: UTMVirtualMachineEntity.self)
+            logger.debug("[Indexing] Deleted VM entity: \(id.uuidString)")
+        } catch {
+            logger.error("[Indexing] Delete failed: \(error.localizedDescription)")
+        }
+    }
 }

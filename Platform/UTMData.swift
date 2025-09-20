@@ -321,6 +321,8 @@ enum AlertItem: Identifiable {
             selectedVM = nil
         }
         vm.isDeleted = true // alert views to update
+        // Notify listeners that this VM was deleted so external indexers can update.
+        NotificationCenter.default.post(name: .vmDidDelete, object: nil, userInfo: ["id": vm.id])
         return index
     }
     

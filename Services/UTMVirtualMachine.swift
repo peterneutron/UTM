@@ -413,6 +413,8 @@ extension UTMVirtualMachine {
         }
         // update last modified date
         try? updateLastModified()
+        // Notify listeners that this VM was saved (for Spotlight indexing, etc.).
+        NotificationCenter.default.post(name: .vmDidSave, object: self)
     }
     
     /// Set the package's last modified time
